@@ -54,11 +54,11 @@
     <!-- menu -->
     <div class="collapse navbar-collapse" id="title-collapse">
         <div class="navbar-nav mr-auto ml-auto text-center">
-            <a class="nav-item nav-link active" href="/index">Inicio</a>
-            <a class="nav-item nav-link" href="/about">Nosotros</a>
-            <a class="nav-item nav-link" href="/services">Servicios</a>
-            <a class="nav-item nav-link" href="/contact">Contacto</a>
-            <a class="nav-item nav-link" href="/tags">Tags</a>
+            <a class="nav-item nav-link active" href="{{ route('start.index') }}">Inicio</a>
+            <a class="nav-item nav-link" href="{{ route('start.about') }}">Nosotros</a>
+            <a class="nav-item nav-link" href="{{ route('start.services') }}">Servicios</a>
+            <a class="nav-item nav-link" href="{{ route('start.contact') }}">Contacto</a>
+            <a class="nav-item nav-link" href="{{ route('start.tags') }}">Tags</a>
         </div>
 
         <div class="d-flex flex-row justify-content-center">

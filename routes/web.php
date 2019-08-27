@@ -1,41 +1,43 @@
 <?php
 
-/**
- * Happy Start
-*/
-
-Route::get('/', function () {
+Route::get('/', function (){
     return view('welcome');
 });
 
-Route::get('/index', function (){
-    return view('start.index');
-});
+/**
+ * Start
+*/
 
-Route::get('/contact', function (){
-    return view('start.contact');
-});
-
-Route::get('/services', function (){
-    return view('start.services');
-});
-
-Route::get('/about', function (){
-    return view('start.about');
-});
-
-Route::get('/tags', function (){
-    return view('start.tags');
-});
-
+Route::prefix('start')->group(function (){
+    Route::get('/', ['as' => 'start.index', 'uses' => 'BasicController@index']);
+    Route::get('/about', ['as' => 'start.about', 'uses' => 'BasicController@about']);
+    Route::get('/services', ['as' => 'start.services', 'uses' => 'BasicController@services']);
+    Route::get('/contact', ['as' => 'start.contact', 'uses' => 'BasicController@contact']);
+    Route::get('/tags', ['as' => 'start.tags', 'uses' => 'BasicController@tags']);
+});;
 
 
 /**
-BLOG CURSO
+* Blog
  */
 
 Route::prefix('blog')->group(function (){
-    Route::get('/', ['uses' => 'BlogController@index']);
-    /*Route::get('', '');
-    Route::get('', '');*/
+    Route::get('/', ['as' => 'blog.index', 'uses' => 'BlogController@index']);
 });
+
+/**
+ * Simple Navbar
+ */
+Route::prefix('navbar')->group(function (){
+    Route::get('/', ['as' => 'nav.index', 'uses' => 'NavController@index']);
+    Route::get('/scroll', ['as' => 'nav.scroll', 'uses' => 'NavController@scroll']);
+    Route::get('/cards', ['as' => 'nav.cards', 'uses' => 'NavController@cards']);
+    Route::get('/testimonials', ['as' => 'nav.testimonials', 'uses' => 'NavController@testimonials']);
+    Route::get('/sticky', ['as' => 'nav.sticky', 'uses' => 'NavController@sticky']);
+});
+
+
+Route::get('/material', function (){
+    return view('material');
+});
+
